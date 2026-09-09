@@ -1,12 +1,12 @@
 # Round 2: native action compatibility in the minimum-size window
 
-No introduced actionable defect emerged from this focused review. Severity: none.
+No introduced production defect emerged from this focused review. Production severity: none.
 
 This review applies a correctness and compatibility perspective inspired by Linus Torvalds.
 It does not represent his identity, review, or endorsement.
 
 Reviewed change: [PR 11](https://github.com/dangduc/nv/pull/11), production checkpoint `72c668cc5329ce6e48850377b35ec7d6d5b27d5b`, against base `4624b3d`.
-Both runs started at head `5f7d5afce8dd0bb217018160a6e0d0269b29e1ad`, which adds review evidence without changing production.
+The original runs started at head `5f7d5afce8dd0bb217018160a6e0d0269b29e1ad`, which adds review evidence without changing production.
 Relevant production code is `Sources/Browser/AppController_BrowserUI.m:291` and `Sources/Browser/AppController_Search.m:53`.
 
 ## New executable evidence
@@ -68,7 +68,9 @@ The runner returns success only when both production and the expected negative f
 
 ## Source and binary identity
 
-The runner rejects production sources that differ from the checkpoint and rejects an unexpected Development executable.
+The runner rejects production sources that differ from the checkpoint.
+It records the Development executable hash and requires that hash to remain unchanged during the runs.
+The executable hash in the table records the measured local build; it is not a required input value.
 Source, probe, harness, and executable hashes match before and after both runs.
 
 | Input | SHA-256 |
@@ -82,6 +84,21 @@ Source, probe, harness, and executable hashes match before and after both runs.
 Logs and `results.json` reside in `build/SearchSummaryReview/round2/torvalds/`.
 The JSON includes full runner commands, return codes, assertion counts, and before/after input hashes.
 It reports no changed inputs.
+
+## Evidence-runner portability correction
+
+The posted P3 comment identified a mandatory executable hash specific to the original local build.
+That check prevented freshly built applications with different binary hashes from reaching the probes, even when their source matched the reviewed checkpoint.
+
+The runner now removes the fixed executable hash and its assertion.
+It preserves the production-source checkpoint checks and before/after executable hashing.
+The historical executable measurement above remains unchanged.
+
+Validation repeated the same command at head `402ecbfd4cf83e5f5bbd1370e1060c7a167f5d4b` after the runner change.
+The production app again passed **46 assertions**.
+The negative variant again failed the expected Retry center hit test after **15 passes**.
+The runner returned status 0, and all recorded inputs remained unchanged during execution.
+This rerun used the existing app build; it did not test a second compiler's binary output.
 
 ## Limits
 

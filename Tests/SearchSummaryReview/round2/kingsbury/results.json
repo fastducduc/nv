@@ -1,0 +1,70 @@
+{
+  "head_before": "402ecbfd4cf83e5f5bbd1370e1060c7a167f5d4b",
+  "head_after": "402ecbfd4cf83e5f5bbd1370e1060c7a167f5d4b",
+  "baseline": "72c668cc5329ce6e48850377b35ec7d6d5b27d5b",
+  "inputs_match_baseline": true,
+  "before_sha256": {
+    "Sources/Browser/AppController.h": "d222dcbaec7b680dbcbc46022b100c0e75c7d7b166110d87134be1e9e65acbb4",
+    "Sources/Browser/AppController.m": "46a9c9f6f0aee838d547dd7b0ef17fa80f97978e1e951ffa0dca91229dac67be",
+    "Sources/Browser/AppController_BrowserUI.m": "45b01fcb17f0df40c58689424053b9d221917f302571ab21ecb7afb40dc9e104",
+    "Sources/Browser/AppController_Search.m": "c9140868ba8ff918e47f420bf7a33efed22232ec4bdcf77be075fbbad92f6a68",
+    "Sources/Browser/NVBrowserSession.m": "2ec178fde253541204b26e36c3bfce018aacb17fe0469ceecd17bfa9ce91e170",
+    "Sources/Search/NVSearchService.m": "ab2cb80e9365e47ae6c82dd086022c12089aeb8da385e95e6084909f8d1a52b8",
+    "Sources/Application/NVApplicationController.m": "9bb74df2dda41c6c8a57c8b3851786f4b985f969cf68ba9eae1c975981b50c0a"
+  },
+  "after_sha256": {
+    "Sources/Browser/AppController.h": "d222dcbaec7b680dbcbc46022b100c0e75c7d7b166110d87134be1e9e65acbb4",
+    "Sources/Browser/AppController.m": "46a9c9f6f0aee838d547dd7b0ef17fa80f97978e1e951ffa0dca91229dac67be",
+    "Sources/Browser/AppController_BrowserUI.m": "45b01fcb17f0df40c58689424053b9d221917f302571ab21ecb7afb40dc9e104",
+    "Sources/Browser/AppController_Search.m": "c9140868ba8ff918e47f420bf7a33efed22232ec4bdcf77be075fbbad92f6a68",
+    "Sources/Browser/NVBrowserSession.m": "2ec178fde253541204b26e36c3bfce018aacb17fe0469ceecd17bfa9ce91e170",
+    "Sources/Search/NVSearchService.m": "ab2cb80e9365e47ae6c82dd086022c12089aeb8da385e95e6084909f8d1a52b8",
+    "Sources/Application/NVApplicationController.m": "9bb74df2dda41c6c8a57c8b3851786f4b985f969cf68ba9eae1c975981b50c0a"
+  },
+  "production_inputs_stable": true,
+  "binary_before_sha256": "efc6fce32c2647e78909efe32d699737a58b3987cdc8b0ddb5fde753d67fdb99",
+  "binary_after_sha256": "efc6fce32c2647e78909efe32d699737a58b3987cdc8b0ddb5fde753d67fdb99",
+  "fixture_sha256": {
+    "checks.inc": "a695a5635b942c5a5a7ea1b48ce82857a8908174ba2dfc4f9e939083166067b1",
+    "prefix.h": "14112358fc6d2d6b1527a0dfaad63ecd9e0734fb13663560f0bc7dc9777ef3f6",
+    "run.py": "12eda621d1cc2cdb9e4826cc1e70f9cc26535ac866c3987a5a020dd91d1f25cc"
+  },
+  "runs": [
+    {
+      "name": "history",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/duc/dev/nv/Tests/ViewControlsReview/run-probe.py",
+        "--probe",
+        "/Users/duc/dev/nv/Tests/SearchSummaryReview/round2/kingsbury/checks.inc",
+        "--prefix",
+        "/Users/duc/dev/nv/Tests/SearchSummaryReview/round2/kingsbury/prefix.h",
+        "--timeout",
+        "90"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "expected_outcome": true,
+      "pass_count": 179
+    },
+    {
+      "name": "wrong-owner",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/duc/dev/nv/Tests/ViewControlsReview/run-probe.py",
+        "--probe",
+        "/Users/duc/dev/nv/Tests/SearchSummaryReview/round2/kingsbury/checks.inc",
+        "--prefix",
+        "/Users/duc/dev/nv/Tests/SearchSummaryReview/round2/kingsbury/prefix.h",
+        "--timeout",
+        "90"
+      ],
+      "environment_overrides": {
+        "NV_SUMMARY_WRONG_OWNER": "1"
+      },
+      "exit_code": 1,
+      "expected_outcome": true,
+      "pass_count": 60
+    }
+  ]
+}
