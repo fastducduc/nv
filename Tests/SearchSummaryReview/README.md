@@ -29,4 +29,15 @@ The complete desktop suites are therefore not green.
 
 Two rounds use the requested Ousterhout, Luu, Torvalds, Kingsbury, and contrarian perspectives.
 Each reviewer supplies executable evidence and a deliberate failure control.
-Review reports and PR comment links will appear here as each round completes.
+[PR #11](https://github.com/dangduc/nv/pull/11) contains the change and review discussion.
+
+| Round | Perspective | Evidence | PR comment |
+| --- | --- | --- | --- |
+| 1 | Ousterhout | [157 checks](round1/ousterhout/findings.md) | [Comment](https://github.com/dangduc/nv/pull/11#issuecomment-5607237481) |
+| 1 | Luu | [40 geometry cases](round1/luu/findings.md) | [Comment](https://github.com/dangduc/nv/pull/11#issuecomment-5607273531) |
+| 1 | Torvalds | [91 checks and availability compile](round1/torvalds/findings.md) | [Comment](https://github.com/dangduc/nv/pull/11#issuecomment-5607243747) |
+| 1 | Kingsbury | [101 actual-app checks](round1/kingsbury/findings.md) | [Comment](https://github.com/dangduc/nv/pull/11#issuecomment-5607283179) |
+| 1 | Contrarian | [39 actual-app checks](round1/contrarian/findings.md) | [Comment](https://github.com/dangduc/nv/pull/11#issuecomment-5607348612) |
+
+The [round-one response](round1/response.md) records all five dispositions and the corrected fixture assumptions.
+No introduced production correction was requested. Round two is in progress.
